@@ -5,7 +5,7 @@ let isConnected: boolean = false;
 export const connectToDb = async () => {
   mongoose.set("strictQuery", true);
 
-  if (!process.env.MONGODB_URI) {
+  if (!process.env.MONGO_DB_URI) {
     return console.log("Missing MONGO URI");
   }
 
@@ -14,7 +14,7 @@ export const connectToDb = async () => {
   }
 
   try {
-    await mongoose.connect(process.env.MONGODB_URI, { dbName: "foro2" });
+    await mongoose.connect(process.env.MONGO_DB_URI, { dbName: "foro2" });
 
     isConnected = true;
 
